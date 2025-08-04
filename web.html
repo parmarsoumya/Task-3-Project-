@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fun with CSS & JS</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-image: url('https://www.baltana.com/files/wallpapers-16/4K-Black-Background-Design-HD-Wallpapers-40664.jpg');
+      background-color: black;
+      background-attachment: fixed;
+      background-size: cover;
+      color: #fff;
+      animation: fadeInBody 2s ease-in;
+    }
+
+    header {
+      background: rgba(0, 0, 0, 0.7);
+      color: white;
+      padding: 2.5rem 1rem;
+      text-align: center;
+      animation: bounceIn 1s ease-in-out;
+      border-bottom: 2px solid cyan;
+      position: relative;
+    }
+
+    header h1 {
+      margin-bottom: 0.5rem;
+      font-size: 3rem;
+      animation: glowText 2s infinite alternate, typing 4s steps(30, end) 1s 1 normal both;
+      overflow: hidden;
+      white-space: nowrap;
+      border-right: 2px solid #00f2ff;
+    }
+
+    .particle-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: -1;
+      background: url('https://media.giphy.com/media/xTiIzJSKB4l7xTouE8/giphy.gif') center/cover repeat;
+      opacity: 0.1;
+    }
+
+   .cartoon-fixed {
+      position: fixed;
+      bottom: 0;
+      right: 0;
+      width: 300px;
+      height: 300px;
+      background: none;
+      box-shadow: none;
+    }
+
+    .container {
+      padding: 2rem;
+      max-width: 1100px;
+      margin: auto;
+      animation: floatIn 1.5s ease-in-out;
+      background: rgba(0, 0, 0, 0.6);
+      border-radius: 20px;
+      box-shadow: 0 0 20px cyan;
+    }
+
+    .section {
+      background: rgba(30, 30, 30, 0.8);
+      border-radius: 15px;
+      padding: 2rem;
+      margin-bottom: 2.5rem;
+      box-shadow: 0 0 15px #00f2ff;
+      transition: transform 0.3s ease;
+      animation: neonPulse 3s infinite;
+      position: relative;
+    }
+
+    .section:hover {
+      transform: scale(1.03);
+    }
+
+    button {
+      background: transparent;
+      color: #00f2ff;
+      border: 2px solid #00f2ff;
+      padding: 0.8rem 1.8rem;
+      font-size: 1rem;
+      border-radius: 10px;
+      margin: 0.5rem;
+      cursor: pointer;
+      box-shadow: 0 0 12px #00f2ff;
+      transition: all 0.3s ease;
+      animation: buttonGlow 2s infinite alternate;
+    }
+
+    button:hover {
+      background: rgba(0, 255, 255, 0.1);
+      transform: translateY(-3px) scale(1.05);
+      box-shadow: 0 0 25px #00f2ff;
+    }
+
+    img {
+      max-width: 100%;
+      height: 500px;
+      width: 800px;
+      object-fit: cover;
+      border-radius: 10px;
+      box-shadow: 0 0 25px #00f2ff;
+      animation: imageFloat 6s ease-in-out infinite;
+    }
+
+    #joke, #weather {
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: #ff66ff;
+      animation: glowText 2s infinite alternate;
+    }
+
+    @keyframes bounceIn {
+      0% { transform: scale(0.9); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+    }
+
+    @keyframes floatIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeInBody {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes glowText {
+      from { text-shadow: 0 0 10px #00f2ff; }
+      to { text-shadow: 0 0 20px #00f2ff, 0 0 30px #00f2ff; }
+    }
+
+    @keyframes neonPulse {
+      0%, 100% { box-shadow: 0 0 15px #00f2ff; }
+      50% { box-shadow: 0 0 25px #00f2ff; }
+    }
+
+    @keyframes buttonGlow {
+      0% { box-shadow: 0 0 10px #00f2ff; }
+      100% { box-shadow: 0 0 20px #00f2ff, 0 0 30px #00f2ff; }
+    }
+
+    @keyframes imageFloat {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    @keyframes typing {
+      from { width: 0 }
+      to { width: 100% }
+    }
+
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 2rem;
+      }
+      .section {
+        padding: 1rem;
+      }
+      button {
+        width: 100%;
+        margin: 0.5rem 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="particle-bg"></div>
+  <img class="cartoon-fixed" src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExdWRwaTA5NDh6cmx5ZGVnbGtkanI1OW5maTgwMDMxYWEzNHFza2FxMCZlcD12MV9zdGlja2Vyc19zZWFyY2gmY3Q9cw/WRddbNQSdgfszBn0x9/giphy.webp" alt="Waving Cartoon Girl" />
+  <header>
+    <h1>Fun with CSS & JS</h1>
+    <p>📱 Responsive Design | 🧠 Quiz Game | 🖼️ Image Carousel | 🌍 API Fun</p>
+  </header>
+
+  <div class="container">
+
+    <div class="section quiz">
+      <h2>🧠 Quick Quiz</h2>
+      <p id="quiz-question">Loading question...</p>
+      <div id="options-container"></div>
+      <button onclick="prevQuiz()">⬅️ Prev</button>
+      <button onclick="nextQuiz()">➡️ Next</button>
+    </div>
+
+    <div class="section carousel">
+      <h2>🖼️ Image Carousel</h2>
+      <img id="carousel-img" src="https://cf-img-a-in.tosshub.com/lingo/stak/images/story/202501/67890ef75314f-bgmi-36-update-brings-120-fps-support-full-list-of-compatible-devices-165145997-16x9.jpg?size=1280:720" alt="Carousel Image" />
+      <br />
+      <button onclick="prevImage()">⬅️ Previous</button>
+      <button onclick="nextImage()">➡️ Next</button>
+    </div>
+
+    <div class="section api-section">
+      <h2>🤣 Random Joke Generator</h2>
+      <button onclick="showFunnyJoke()">😂 Give Me a Laugh</button>
+      <p id="joke"></p>
+    </div>
+
+    <div class="section api-section">
+      <h2>☁️ Weather Fetch </h2>
+      <input type="text" id="city-input" placeholder="Enter city name" style="padding: 0.5rem; width: 200px; border-radius: 6px; border: 1px solid #ccc;" />
+      <button onclick="fetchWeather()">🌦️ Get Weather</button>
+      <p id="weather"></p>
+    </div>
+  </div>
+
+  <script>
+    const quizData = [
+      { question: "What sound does a unicorn make?", options: ["Sparkle Neigh", "Roar", "Cluck"], answer: "Sparkle Neigh" },
+      { question: "What is 2 + 2?", options: ["4", "22", "Fish"], answer: "4" },
+      { question: "How many sandwiches can you eat on an empty stomach?", options: ["One", "As many as you want", "None"], answer: "One" },
+      { question: "What has an eye but cannot see?", options: ["A needle", "A potato", "A hurricane"], answer: "A needle" }
+    ];
+
+    let quizIndex = 0;
+    const questionEl = document.getElementById("quiz-question");
+    const optionsEl = document.getElementById("options-container");
+
+    function loadQuiz() {
+      const quiz = quizData[quizIndex];
+      questionEl.textContent = quiz.question;
+      optionsEl.innerHTML = "";
+      quiz.options.forEach(opt => {
+        const btn = document.createElement("button");
+        btn.textContent = opt;
+        btn.onclick = () => alert(opt === quiz.answer ? "✅ Correct!" : "❌ Nope, try again!");
+        optionsEl.appendChild(btn);
+      });
+    }
+
+    function nextQuiz() {
+      quizIndex = (quizIndex + 1) % quizData.length;
+      loadQuiz();
+    }
+
+    function prevQuiz() {
+      quizIndex = (quizIndex - 1 + quizData.length) % quizData.length;
+      loadQuiz();
+    }
+
+    document.addEventListener("DOMContentLoaded", loadQuiz);
+
+    const images = [
+      "https://cf-img-a-in.tosshub.com/lingo/stak/images/story/202501/67890ef75314f-bgmi-36-update-brings-120-fps-support-full-list-of-compatible-devices-165145997-16x9.jpg?size=1280:720",
+      "https://akm-img-a-in.tosshub.com/sites/itgaming/resources/202411/screenshot-2024-11-21-022038211124022342.png",
+      "https://in-exstatic-vivofs.vivo.com/bCy1HLzT9bUXp6Mb/IN-IQOO/threadResource/20250515/fab852dbb4d048df933b531919009a4c_w1600_h1007.jpg",
+      "https://staticg.sportskeeda.com/editor/2024/09/cba20-17260333034042-1920.jpg"
+    ];
+    let currentImg = 0;
+
+    function showImage(index) {
+      document.getElementById("carousel-img").src = images[index];
+    }
+
+    function nextImage() {
+      currentImg = (currentImg + 1) % images.length;
+      showImage(currentImg);
+    }
+
+    function prevImage() {
+      currentImg = (currentImg - 1 + images.length) % images.length;
+      showImage(currentImg);
+    }
+
+    function showFunnyJoke() {
+      const jokes = [
+        "🐸 Why did the tomato sit on a unicorn while eating spaghetti? Because Tuesdays don't wear pants! 🤪",
+        "🦖 What did the invisible cow say? Moo who? I’m behind you!",
+        "🛸 Why don’t aliens visit us? They saw Earth’s reviews: only 1 star!",
+        "🧀 Why did the cheese go to art school? It wanted to be a grater artist!",
+        "🐍 What do you call a snake that builds houses? A boa constructor!"
+      ];
+      document.getElementById("joke").textContent = jokes[Math.floor(Math.random() * jokes.length)];
+    }
+
+    async function fetchWeather() {
+  const apiKey = "cfc7adb4ccc341d5b0e83314250208"; // ← paste your API key here
+  const city = document.getElementById("city-input").value || "London";
+  const weatherBox = document.getElementById("weather");
+  weatherBox.textContent = "⏳ Loading...";
+
+  try {
+    const response = await fetch(`https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${city}`);
+    if (!response.ok) throw new Error("API error");
+    const data = await response.json();
+    weatherBox.textContent = `🌤️ Weather in ${data.location.name}: ${data.current.temp_c}°C, ${data.current.condition.text}`;
+  } catch (error) {
+    weatherBox.textContent = "⚠️ Couldn't fetch weather. Check city name or API key.";
+  }
+}
+  </script>
+</body>
+
+</html>
